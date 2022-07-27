@@ -18,17 +18,17 @@ const Pin = (props: any) => {
     
     return (
       <View style={styles.pin}>  
-      <View>
-          <Image 
-            source={{uri:image}}
-            style={[styles.image,{aspectRatio:ratio}]}
-          />
-          <Pressable onPress={onLike} style={styles.HeartBtn}>
-              <AntDesign name="hearto" size={24} color="black" />
-          </Pressable>
-      </View>
-          <Text style={styles.title}>{title}</Text>
+        <View>
+            <Image 
+              source={{uri:image}}
+              style={[styles.image,{aspectRatio:ratio}]}
+            />
+            <Pressable onPress={onLike} style={styles.HeartBtn}>
+                <AntDesign name="hearto" size={24} color="black" />
+            </Pressable>
         </View>
+        <Text style={styles.title} numberOfLines={2}>{title}</Text>
+      </View>
     )
 }
 
@@ -36,9 +36,11 @@ export default Pin
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        margin:10
+        fontSize: 16,
+        lineHeight:24,
+        fontWeight: '600',
+        margin:5,
+        color:'#282828'
       },
       image: {
         width:"100%",
@@ -46,6 +48,7 @@ const styles = StyleSheet.create({
       },
       pin:{
         width:"100%",
+        padding:4
       },
       HeartBtn:{
         backgroundColor:'#D3CFC4',
