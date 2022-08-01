@@ -19,6 +19,7 @@ import TabTwoScreen from '../screens/ProfileScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import PinScreen from '../screens/PinScreen';
+import CreatePinScreen from '../screens/CreatePinScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -60,38 +61,33 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarShowLabel:false
       }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Home"
         component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <FontAwesome name="home" size={30} color={color} />,
+        }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="CreatePin"
+        component={CreatePinScreen}
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <FontAwesome name="plus" size={30} color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Profile"
         component={TabTwoScreen}
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome name="user" size={30} color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -101,9 +97,3 @@ function BottomTabNavigator() {
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
