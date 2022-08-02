@@ -9,6 +9,7 @@ export default function ProfileScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
+        
         <View style={styles.icons}>
           <Feather name="share" size={24} color="white" style={styles.icon} />
           <Entypo name='dots-three-horizontal' size={24} color="white" style={styles.icon}  />
