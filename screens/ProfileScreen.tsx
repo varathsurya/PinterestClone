@@ -8,6 +8,7 @@ import { Feather, Entypo } from '@expo/vector-icons';
 export default function ProfileScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      
       <View style={styles.header}>
         
         <View style={styles.icons}>
